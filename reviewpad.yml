@@ -1,0 +1,10 @@
+workflows:
+  - name: Review Pad
+    run:
+      - $addLabel("review")
+  - name: Merge Protection if Critical-Annoted Code is Touched
+    run:
+      - if: $containsCodeAnnotation("critical") && $getReviewerStatus("felixjklein23") != "APPROVED"
+        then:
+          - $addLabel("critical")
+          - $failCheckStatus("An approval from 'felixjklein23' is required as a critical piece of code has been touched")
