@@ -1,6 +1,6 @@
 // reviewpad-an: critical
 function main() {
-    console.log("Do something");
+    console.log("Do something else");
 }
 
 main()
